@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { ApiCall } from "@/app/utils/api";
 
 interface Props {
-  setRegister: (value: boolean) => void; // Ensure it's a function that accepts a boolean
+  setRegister: (value: boolean) => void; 
 }
 
 const Register = ({ setRegister }: Props) => {
@@ -30,7 +30,7 @@ const Register = ({ setRegister }: Props) => {
       });
       if (response) {
         alert("Register successful");
-        setRegister(false); // Switch to Login
+        setRegister(false); 
       }
     } catch (err: any) {
       console.log(err.message);
@@ -39,6 +39,7 @@ const Register = ({ setRegister }: Props) => {
       setLoading(false);
     }
   };
+  
 
   useEffect(() => {
     if (error) {

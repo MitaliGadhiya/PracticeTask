@@ -38,6 +38,26 @@ const Login = () => {
     }
   };
 
+  const loginUser = async (credentials : any) => {
+    try {
+      const response = await fetch("http://your-api.com/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(credentials),
+      });
+  
+      const data = await response.json();
+      if (data.token) {
+        localStorage.setItem("token", data.token); // Store token in localStorage
+        window.location.reload(); // Reload to update UI based on role
+      }
+    } catch (error) {
+      console.error("Login failed:", error);
+    }
+  };
+
+  console.log(loginUser)
+
   useEffect(() => {
     if (error) {
       const timer = setTimeout(() => setError(null), 3000);
